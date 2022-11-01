@@ -1,15 +1,11 @@
 import React from "react";
+import NavContainer from "./NavContainer";
 
 const Header = () => {
   return (
     <header>
       Header
-      <nav>
-        <a href="">link</a>
-        <a href="">link</a>
-        <a href="">link</a>
-        <a href="">link</a>
-      </nav>
+      <NavContainer/>
     </header>
   );
 };
