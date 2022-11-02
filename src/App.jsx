@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
-import HeaderContainer from "./HeaderContainer";
-import MainContainer from "./MainContainer";
-import FooterContainer from "./FooterContainer";
+import Header from "./components/header/Header";
+import Nav from "./components/header/nav/Nav";
+import Main from "./components/main/Main";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -18,13 +18,16 @@ body,
 }
 `;
 function App() {
-  
   return (
     <>
       <GlobalStyle />
-      <HeaderContainer />
-      <MainContainer/>
-      <FooterContainer />
+      <Header titulo="logo" nav={<Nav link="render" />}>
+        {/* childrenPorop
+        <h2> Empresa </h2>
+        <h3> up </h3>
+        <Nav link="child"/> */}
+      </Header>
+      <Main />
     </>
   );
 }
