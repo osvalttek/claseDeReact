@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import Header from "./components/header/Header";
-import Nav from "./components/header/nav/Nav";
-import Main from "./components/main/Main";
+import Product from "./components/Product";
+
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -14,20 +13,37 @@ body,
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: goldenrod;
+  width: 100vw;
+  background-color: gray;
+
 }
 `;
 function App() {
+  // let array = [1,2];
+  // // let uno = array[0];
+  // // let dos = array[1];
+  // let [unoD, dosD] = array;
+  // console.log(unoD);
+  // dosD = 20;
+  // console.log(dosD);
+  // console.log("array", array);
+
+  // let obj = {
+  //   id: 1,
+  //   marca: "LG",
+  //   precio: 30000,
+  // };
+  // //  let marca=obj.marca
+  // let { precio, id, marca } = obj;
+  // console.log("precio", precio);
+  // precio = 100;
+  // console.log(obj);
+
   return (
     <>
       <GlobalStyle />
-      <Header titulo="logo" nav={<Nav link="render" />}>
-        {/* childrenPorop
-        <h2> Empresa </h2>
-        <h3> up </h3>
-        <Nav link="child"/> */}
-      </Header>
-      <Main />
+      <Product/>
+  
     </>
   );
 }
