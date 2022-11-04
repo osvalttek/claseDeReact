@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import Product from "./components/Product";
-
+import Header from "./components/header/Header";
+import Main from "./components/main/Main";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -19,31 +19,11 @@ body,
 }
 `;
 function App() {
-  // let array = [1,2];
-  // // let uno = array[0];
-  // // let dos = array[1];
-  // let [unoD, dosD] = array;
-  // console.log(unoD);
-  // dosD = 20;
-  // console.log(dosD);
-  // console.log("array", array);
-
-  // let obj = {
-  //   id: 1,
-  //   marca: "LG",
-  //   precio: 30000,
-  // };
-  // //  let marca=obj.marca
-  // let { precio, id, marca } = obj;
-  // console.log("precio", precio);
-  // precio = 100;
-  // console.log(obj);
-
   return (
     <>
       <GlobalStyle />
-      <Product/>
-  
+      <Header />
+      <Main />
     </>
   );
 }
