@@ -12,7 +12,8 @@ const Product = () => {
   function onAdd(add) {
     let productCopi = { ...producto };
     productCopi.stock = productCopi.stock - add;
-    setProducto(productCopi);
+    if (producto.stock)setProducto(productCopi);
+    
   }
   return (
     <>
