@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 const Main = () => {
   return (
     <main>
-      {/* <PersonajesListContainer /> */}
       <Outlet />
     </main>
   );
