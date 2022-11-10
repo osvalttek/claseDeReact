@@ -16,12 +16,17 @@ const Form = styled.form`
   align-items: center;
 `;
 const Register = () => {
-  const [data, setData] = useState({});
-  const nombre = useInput();
-  const apellido = useInput();
+  const [newData, setNewData] = useState({});
+  const [data, setData] = useState({
+    nombre: "Carlos",
+    apellido: "Rodriguez",
+  });
+  const nombre = useInput("text", "nombre", data.nombre);
+  // console.log(nombre);
+  const apellido = useInput("text", "apellido", data.apellido);
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData({ ...nombre.input, ...apellido.input });
+    setNewData({ ...nombre.input, ...apellido.input });
   };
   return (
     <DivContainer>
@@ -29,8 +34,8 @@ const Register = () => {
         <label>
           nombre
           <input
-            type="text"
-            name="nombre"
+            // type="text"
+            // name="nombre"
             // onInput={nombre.onInput}
             // value={nombre.input.name}
             {...nombre}
@@ -39,16 +44,17 @@ const Register = () => {
         <label>
           apellido
           <input
-            type="text"
-            name="apellido"
-            onInput={apellido.onInput}
-            value={apellido.input.name}
+            // type="text"
+            // name="apellido"
+            // onInput={apellido.onInput}
+            // value={apellido.input.name}
+            {...apellido}
           />
         </label>
         <button>Enviar</button>
       </Form>
-      <h2>nombre:{data.nombre}</h2>
-      <h2>apellido:{data.apellido}</h2>
+      <h2>nombre:{newData.nombre}</h2>
+      <h2>apellido:{newData.apellido}</h2>
     </DivContainer>
   );
 };
