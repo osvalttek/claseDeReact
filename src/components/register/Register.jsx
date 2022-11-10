@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import useInput from "../../customHooks/useInput";
+
 const DivContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,112 +15,40 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
 `;
-
 const Register = () => {
-  // const [nombre, setNombre] = useState("Juana");
-  // const [apellido, setApellido] = useState("Perz");
-  // const [data, setData] = useState({});
-
-  // const handleSetName = (e) => {
-  //   // console.log("log", e.target);
-  //   // console.dir(e.target);
-  //   setNombre(e.target.value);
-  // };
-  // const handleSetLastName = (e) => {
-  //   setApellido(e.target.value);
-  // };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setData({
-  //     nombre,
-  //     apellido,
-  //   });
-  // };
-
-  // return (
-  //   <DivContainer>
-  //     <Form osvaldito onSubmit={handleSubmit}>
-  //       <label>
-  //         nombre
-  //         <input
-  //           onInput={handleSetName}
-  //           type="text"
-  //           name="nombre"
-  //           value={nombre}
-  //         />
-  //       </label>
-  //       <label>
-  //         apellido
-  //         <input
-  //           onInput={handleSetLastName}
-  //           type="text"
-  //           name="apellido"
-  //           value={apellido}
-  //         />
-  //       </label>
-  //       <button>Enviar</button>
-  //     </Form>
-  //     Register
-  //     <Link to="/">
-  //       <button>home</button>
-  //     </Link>
-  //     <h2>Nombre: {nombre}</h2>
-  //     <h2>Apellido:{apellido}</h2>
-  //     <h3>Data Nombre: {data.nombre}</h3>
-  //     <h3>Data Apellido:{data.apellido}</h3>
-  //   </DivContainer>
-  // );
-  // ----------------------------------------------------------
-  // segunda version
-  // const [backData, setBackData] = useState({});
   const [data, setData] = useState({});
-
-  const handleInput = (e) => {
-    // console.dir(e.target);
-    // console.log(e.target.name);
-    let name = e.target.name;
-    let value = e.target.value;
-    let newData = { ...data };
-    newData[name] = value;
-    setData(newData);
-  };
-
+  const nombre = useInput();
+  const apellido = useInput();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setData({});
+    setData({ ...nombre.input, ...apellido.input });
   };
-
   return (
     <DivContainer>
       <Form osvaldito onSubmit={handleSubmit}>
         <label>
           nombre
           <input
-            onInput={handleInput}
             type="text"
             name="nombre"
-            // value={nombre}
+            // onInput={nombre.onInput}
+            // value={nombre.input.name}
+            {...nombre}
           />
         </label>
         <label>
           apellido
           <input
-            onInput={handleInput}
             type="text"
             name="apellido"
-            // value={apellido}
+            onInput={apellido.onInput}
+            value={apellido.input.name}
           />
         </label>
         <button>Enviar</button>
       </Form>
-      Register
-      <Link to="/">
-        <button>home</button>
-      </Link>
-      {/* <h2>Nombre: {nombre}</h2> */}
-      {/* <h2>Apellido:{apellido}</h2> */}
-      <h3>Data Nombre: {data.nombre}</h3>
-      <h3>Data Apellido:{data.apellido}</h3>
+      <h2>nombre:{data.nombre}</h2>
+      <h2>apellido:{data.apellido}</h2>
     </DivContainer>
   );
 };
