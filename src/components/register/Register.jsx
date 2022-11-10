@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 const DivContainer = styled.div`
@@ -71,12 +71,16 @@ const Register = () => {
   // );
   // ----------------------------------------------------------
   // segunda version
-  // const [backData, setBackData] = useState({});
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    nombre: "Pedlo",
+    apellido: "Pedles",
+  });
+  const [newData, setNewData] = useState({});
+  useEffect(() => {
+    console.log("data enviada");
+  },[newData]);
 
   const handleInput = (e) => {
-    // console.dir(e.target);
-    // console.log(e.target.name);
     let name = e.target.name;
     let value = e.target.value;
     let newData = { ...data };
@@ -86,7 +90,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setData({});
+    setNewData(data);
   };
 
   return (
@@ -98,7 +102,7 @@ const Register = () => {
             onInput={handleInput}
             type="text"
             name="nombre"
-            // value={nombre}
+            value={data.nombre}
           />
         </label>
         <label>
@@ -107,7 +111,7 @@ const Register = () => {
             onInput={handleInput}
             type="text"
             name="apellido"
-            // value={apellido}
+            value={data.apellido}
           />
         </label>
         <button>Enviar</button>
@@ -118,8 +122,8 @@ const Register = () => {
       </Link>
       {/* <h2>Nombre: {nombre}</h2> */}
       {/* <h2>Apellido:{apellido}</h2> */}
-      <h3>Data Nombre: {data.nombre}</h3>
-      <h3>Data Apellido:{data.apellido}</h3>
+      <h3>Data Nombre: {newData.nombre}</h3>
+      <h3>Data Apellido:{newData.apellido}</h3>
     </DivContainer>
   );
 };
