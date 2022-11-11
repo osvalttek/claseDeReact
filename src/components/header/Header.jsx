@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import HMenu from "./HMenu/HMenu";
+import Logo from "./logo/Logo";
 import Nav from "./nav/Nav";
 
 const HeaderStyled = styled.header`
+  display: flex;
+  justify-content: space-between;
+  /* padding:0 10px; */
   height: 10vh;
-  background-color: white;
 `;
-console.log("header");
 
-const Header = () => {
-  return <HeaderStyled>Header
-
-    <Nav/>
-  </HeaderStyled>;
+const Header = ({user}) => {
+  const [click, setClick] = useState(false);
+  const clicked = () => {
+    setClick(!click);
+  };
+  return (
+    <HeaderStyled>
+      <Logo />
+      <Nav click={click} clicked={clicked} user={user}  />
+      <HMenu click={click} clicked={clicked} />
+    </HeaderStyled>
+  );
 };
 
 export default Header;

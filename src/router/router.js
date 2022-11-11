@@ -1,46 +1,56 @@
-import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
-import ProductContainer from "../components/main/product/ProductContainer"
-import ProductsContainer from '../components/main/products/ProductsContainer';
-import Register from '../components/register/Register';
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
+import Login from "../components/forms/Login";
+import Register from "../components/forms/Register";
+import Logout from "../components/main/Logout";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App/>,
-        errorElement: "Erroooooo",
-        children: [
-            {
-                path: "/",
-                element: "home",
-            },
-            {
-                path: "/about",
-                element: "about",
-            },
-            {
-                path: "/products",
-                element: <ProductsContainer />,
-            },
-            {
-                path: "/product/:id",
-                element: <ProductContainer />,
-            },
-            {
-                path: "/cart",
-                element: "cart",
-            }
-        ]
-    },
-    {
-        path: "/register",
-        element: <Register />,
-    },
-    {
-        path: "/login",
-        element: "login",
-    }
-])
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <App />,
+            errorElement: "Erroooo",
+            children: [
+                {
+                    path: "/",
+                    element: "home"
+                },
+                {
+                    path: "/about",
+                    element: "about"
+                },
+                {
+                    path: "/products",
+                    element: "products"
+                },
+                {
+                    path: "/product/:id",
+                    element: "product"
+                },
+                {
+                    path: "/cart",
+                    element: "cart"
+                },
+                {
+                    path: "/logout",
+                    element: <Logout />
+                },
+                {
+                    path: "/editProfile",
+                    element: "editProfile"
+                }
+            ]
+        },
+        {
+            path: "/register",
+            element: <Register />
+        },
+        {
+            path: "/login",
+            element: <Login />
+        }
 
+    ]
+)
 
 export default router
