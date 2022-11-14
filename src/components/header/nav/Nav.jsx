@@ -12,17 +12,15 @@ const NavStyled = styled.nav`
     position: static;
     width: initial
   }
-`;
+  `;
 
 const LinkStyled = styled(Link)`
   display: inline-block;
   width: 100%;
+  text-align: center;
   color: white;
   font-size: 2rem;
-  text-align: center;
   margin: 10px 0;
-  z-index: 0;
-
   @media (min-width: 720px) {
     width: initial;
     margin:0 10px;

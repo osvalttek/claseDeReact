@@ -8,17 +8,19 @@ const App = () => {
   useEffect(() => {
     if (!sessionStorage.getItem("user")) {
       sessionStorage.setItem("user", user);
-    }else{
-      setUser(JSON.parse(sessionStorage.getItem("user")))
+    } else {
+      setUser(JSON.parse(sessionStorage.getItem("user")));
     }
-  });
+  }, [user]);
 
-
+  const logOutUser = () => {
+    setUser(JSON.parse(sessionStorage.getItem("user")));
+  };
 
   return (
     <>
       <Header user={user} />
-      <Main/>
+      <Main logOutUser={logOutUser}  />
       <Footer />
     </>
   );

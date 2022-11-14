@@ -6,14 +6,13 @@ import Nav from "./nav/Nav";
 
 const HeaderStyled = styled.header`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-  padding:10px;
+  padding: 10px;
   min-height: 10vh;
 `;
 
-const Header = ({user}) => {
+const Header = ({ user }) => {
   const [click, setClick] = useState(false);
   const clicked = () => {
     setClick(!click);
@@ -21,7 +20,11 @@ const Header = ({user}) => {
   return (
     <HeaderStyled>
       <Logo />
-      <Nav click={click} clicked={clicked} user={user}  />
+      <Nav
+        click={click}
+        clicked={clicked}
+        user={user}
+      />
       <HMenu click={click} clicked={clicked} />
     </HeaderStyled>
   );

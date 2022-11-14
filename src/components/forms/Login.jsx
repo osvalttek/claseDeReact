@@ -10,13 +10,13 @@ const Login = () => {
   useEffect(() => {
     new Promise((resolve, reject) => {
       let register = JSON.parse(sessionStorage.getItem("register"));
-      if (data.name == register.name && data.pass == register.pass) {
+      if (data.name === register.name && data.pass === register.pass) {
         resolve(true);
       }
     })
       .then((res) => sessionStorage.setItem("user", res))
       .then(() => navigate("/"));
-  }, [data]);
+  }, [data, navigate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setData({
@@ -31,7 +31,6 @@ const Login = () => {
           Nombre
           <input {...name} />
         </label>
-
         <label htmlFor="">
           Contraseña
           <input {...pass} />

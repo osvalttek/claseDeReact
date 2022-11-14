@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet} from "react-router-dom";
 
-const Main = () => {
+const Main = ({logOutUser}) => {
   return (
     <main>
-      <Outlet/>
+      <Outlet context={logOutUser}/>
     </main>
   );
 };
