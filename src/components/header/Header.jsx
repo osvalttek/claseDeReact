@@ -6,9 +6,11 @@ import Nav from "./nav/Nav";
 
 const HeaderStyled = styled.header`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  /* padding:0 10px; */
-  height: 10vh;
+  position: relative;
+  padding:10px;
+  min-height: 10vh;
 `;
 
 const Header = ({user}) => {

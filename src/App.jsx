@@ -5,20 +5,20 @@ import Main from "./components/main/Main";
 
 const App = () => {
   const [user, setUser] = useState(false);
-
   useEffect(() => {
     if (!sessionStorage.getItem("user")) {
       sessionStorage.setItem("user", user);
-       setUser(false)
     }else{
       setUser(JSON.parse(sessionStorage.getItem("user")))
     }
   });
 
+
+
   return (
     <>
       <Header user={user} />
-      <Main />
+      <Main/>
       <Footer />
     </>
   );

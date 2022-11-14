@@ -10,7 +10,6 @@ const Login = () => {
   useEffect(() => {
     new Promise((resolve, reject) => {
       let register = JSON.parse(sessionStorage.getItem("register"));
-
       if (data.name == register.name && data.pass == register.pass) {
         resolve(true);
       }

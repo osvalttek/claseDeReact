@@ -4,13 +4,13 @@ import styled from "styled-components";
 
 const NavStyled = styled.nav`
   position: absolute;
+  left: 0;
   top: ${(props) => (props.show ? "7vh" : "-500px")};
   transition: top 1s ease;
-  /* padding-top: 7vh; */
-
+  width: 100vw;
   @media (min-width: 720px) {
     position: static;
-    padding: 0;
+    width: initial
   }
 `;
 
@@ -20,15 +20,16 @@ const LinkStyled = styled(Link)`
   color: white;
   font-size: 2rem;
   text-align: center;
-  margin: 10px;
+  margin: 10px 0;
+  z-index: 0;
 
   @media (min-width: 720px) {
     width: initial;
+    margin:0 10px;
   }
 `;
 
 const Nav = ({ click, clicked, user }) => {
-  console.log(typeof user);
   return (
     <NavStyled show={click} onClick={clicked}>
       <LinkStyled to="/">Home</LinkStyled>

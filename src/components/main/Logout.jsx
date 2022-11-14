@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const Logout = () => {
   const navigate = useNavigate();
   useEffect(() => {
-      sessionStorage.removeItem("user")
+    sessionStorage.setItem("user", false)
     setTimeout(() => {
         navigate("/")
     }, 2000);
