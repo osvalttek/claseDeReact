@@ -1,11 +1,17 @@
 import React from "react";
-import { Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import styled from "styled-components";
 
-const Main = ({logOutUser}) => {
+const MainStyled = styled.main`
+  flex-grow: 1;
+  padding: 10px;
+  background-color: #212121;
+`;
+const Main = ({ logOutUser }) => {
   return (
-    <main>
-      <Outlet context={logOutUser}/>
-    </main>
+    <MainStyled>
+      <Outlet context={logOutUser} />
+    </MainStyled>
   );
 };
 
