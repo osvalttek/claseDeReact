@@ -7,6 +7,7 @@ const Login = () => {
   const name = useInput("text", "name");
   const pass = useInput("password", "pass");
   const [data, setData] = useState({});
+
   useEffect(() => {
     new Promise((resolve, reject) => {
       let register = JSON.parse(sessionStorage.getItem("register"));
