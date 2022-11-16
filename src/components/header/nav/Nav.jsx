@@ -9,7 +9,7 @@ const NavStyled = styled.nav`
   top: ${(props) => (props.show ? "10vh" : "-500px")};
   transition: top 1s ease;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: black;
   @media (min-width: 720px) {
     position: static;
     width: initial;

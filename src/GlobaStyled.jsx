@@ -13,6 +13,7 @@ body, #root{
     flex-direction: column;
     background-color: #201f1fac;
     min-height: 100vh;
+    width: 100vw;
     color: white;
 
 }

@@ -4,6 +4,9 @@ import styled from "styled-components";
 
 const MainStyled = styled.main`
   flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 10px;
   background-color: #212121;
 `;
