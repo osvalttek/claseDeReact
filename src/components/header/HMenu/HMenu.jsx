@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const Menu = styled.h2`
   z-index: 1;
-  /* padding: 10px; */
   @media (min-width: 720px) {
     display: none;
   }

@@ -1,6 +1,7 @@
-import React from "react";
+import React,{useContext}  from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { userContext } from "../../../context/UserContext";
 
 const NavStyled = styled.nav`
   position: absolute;
@@ -29,7 +30,8 @@ const LinkStyled = styled(Link)`
   }
 `;
 
-const Nav = ({ click, clicked, user }) => {
+const Nav = ({ click, clicked }) => {
+  const {user}=useContext(userContext)
   return (
     <NavStyled show={click} onClick={clicked}>
       <LinkStyled to="/">Home</LinkStyled>

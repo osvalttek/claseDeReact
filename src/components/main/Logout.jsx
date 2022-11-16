@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import React, { useEffect,useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { userContext } from "../../context/UserContext";
 
 const Logout = () => {
-  const user = useOutletContext();
+  const {logOutUser}=useContext(userContext)
   const navigate = useNavigate();
   useEffect(() => {
-    user();
+    logOutUser()
     sessionStorage.setItem("user", false);
     setTimeout(() => {
       navigate("/");

@@ -7,10 +7,10 @@ const MainStyled = styled.main`
   padding: 10px;
   background-color: #212121;
 `;
-const Main = ({ logOutUser }) => {
+const Main = () => {
   return (
     <MainStyled>
-      <Outlet context={logOutUser} />
+      <Outlet/>
     </MainStyled>
   );
 };

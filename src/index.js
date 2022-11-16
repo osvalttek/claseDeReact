@@ -6,11 +6,12 @@ import GlobalStyled from './GlobaStyled';
 
 
 
+
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render(
   <React.StrictMode>
     <GlobalStyled />
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
 

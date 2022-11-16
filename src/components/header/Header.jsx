@@ -12,7 +12,7 @@ const HeaderStyled = styled.header`
   min-height: 10vh;
 `;
 
-const Header = ({ user }) => {
+const Header = () => {
   const [click, setClick] = useState(false);
   const clicked = () => {
     setClick(!click);
@@ -23,7 +23,6 @@ const Header = ({ user }) => {
       <Nav
         click={click}
         clicked={clicked}
-        user={user}
       />
       <HMenu click={click} clicked={clicked} />
     </HeaderStyled>

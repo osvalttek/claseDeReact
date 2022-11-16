@@ -1,27 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
+import UserContext from "./context/UserContext";
 
 const App = () => {
-  const [user, setUser] = useState(false);
-  useEffect(() => {
-    if (!sessionStorage.getItem("user")) {
-      sessionStorage.setItem("user", user);
-    } else {
-      setUser(JSON.parse(sessionStorage.getItem("user")));
-    }
-  }, [user]);
-
-  const logOutUser = () => {
-    setUser(JSON.parse(sessionStorage.getItem("user")));
-  };
-
   return (
     <>
-      <Header user={user} />
-      <Main logOutUser={logOutUser}  />
-      <Footer />
+      <UserContext>
+        <Header />
+        <Main />
+        <Footer />
+      </UserContext>
     </>
   );
 };
