@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { cartContext } from "../../../context/CartContext";
 import Counter from "../../counter/Counter";
@@ -19,11 +19,14 @@ const DivStyled = styled.div`
 
 const ProductDetail = ({ product }) => {
   const { addToCart } = useContext(cartContext);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
   const handleQuantity = (n) => {
     setQuantity(n);
-    addToCart({ ...product,quantity });
   };
+  useEffect(() => {
+    quantity && addToCart({ ...product, quantity });
+   
+  }, [quantity]);
 
   return (
     <DivStyled>

@@ -1,6 +1,7 @@
-import React,{useContext}  from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { cartContext } from "../../../context/CartContext";
 import { userContext } from "../../../context/UserContext";
 
 const NavStyled = styled.nav`
@@ -31,13 +32,19 @@ const LinkStyled = styled(Link)`
 `;
 
 const Nav = ({ click, clicked }) => {
-  const {user}=useContext(userContext)
+  const { user } = useContext(userContext);
+  const { getTotalproducts } = useContext(cartContext);
+
+  const sTPRoducts = getTotalproducts()>0?getTotalproducts():false
+ 
   return (
     <NavStyled show={click} onClick={clicked}>
       <LinkStyled to="/">Home</LinkStyled>
       <LinkStyled to="/about">About</LinkStyled>
       <LinkStyled to="/products">Products</LinkStyled>
-      <LinkStyled to="/cart">Cart</LinkStyled>
+      <LinkStyled to="/cart">
+        Cart {sTPRoducts && <span>{sTPRoducts}</span>}
+      </LinkStyled>
       {!user && <LinkStyled to="/register">Register</LinkStyled>}
       {!user && <LinkStyled to="/login">Login</LinkStyled>}
       {user && <LinkStyled to="/logout">Logout</LinkStyled>}
