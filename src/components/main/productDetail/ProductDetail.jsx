@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { cartContext } from "../../../context/CartContext";
 import Counter from "../../counter/Counter";
@@ -20,12 +21,14 @@ const DivStyled = styled.div`
 const ProductDetail = ({ product }) => {
   const { addToCart } = useContext(cartContext);
   const [quantity, setQuantity] = useState(0);
+  const [goToCart, setGoToCart] = useState(false);
   const handleQuantity = (n) => {
     setQuantity(n);
+    setGoToCart(!goToCart);
   };
   useEffect(() => {
     quantity && addToCart({ ...product, quantity });
-   
+    setQuantity(0);
   }, [quantity]);
 
   return (
@@ -36,6 +39,12 @@ const ProductDetail = ({ product }) => {
       <h3>Precio: ${product.price}</h3>
       <h3>Stock: {product.stock}</h3>
       <Counter stock={product.stock} handleQuantity={handleQuantity} />
+      <br />
+      {goToCart && (
+        <Link to="/cart">
+          <button>Ir al carrito</button>
+        </Link>
+      )}
     </DivStyled>
   );
 };

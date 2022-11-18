@@ -12,33 +12,35 @@ const CartContext = ({ children }) => {
   //adToCart
   const addToCart = (product) => {
     let cartCopy = JSON.parse(JSON.stringify(cart));
-    
-    let ifProducts = cartCopy.cart.filter((p) => (p.id = product.id));
-    if (ifProducts.length) {
-      let newQuantity = ifProducts[0].quantity + product.quantity;
-    }
 
+    let ifProducts = cartCopy.cart.findIndex((p) => p.id === product.id);
+
+    if (ifProducts > -1) {
+      cartCopy.cart[ifProducts].quantity += product.quantity;
+    } else {
+      // cart
+      cartCopy.cart.push(product);
+    }
     // totalProducts
     cartCopy.totalProducts += product.quantity;
-
-    // cart
-    cartCopy.cart.push(product);
-
     // totalPrice
     cartCopy.totalPrice += product.price * product.quantity;
-
     setCart(cartCopy);
-    console.log(cartCopy);
+    // console.log(cartCopy);
   };
   //getTotalproducts
   const getTotalproducts = () => {
     return cart.totalProducts;
   };
 
+  const cleanCart = () => {
+    setCart({ totalProducts: 0, cart: [], totalPrice: 0 });
+  };
   const cartData = {
     cart,
     addToCart,
     getTotalproducts,
+    cleanCart
   };
 
   return <Provider value={cartData}>{children}</Provider>;

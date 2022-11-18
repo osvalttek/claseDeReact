@@ -14,13 +14,18 @@ const Counter = ({ stock, handleQuantity }) => {
     }
   };
 
+  const addToCart=()=>{
+    handleQuantity(cantidad)
+    setCantidad(1)
+  }
+
   return (
     <div>
       <button onClick={subtract}>-</button>
       <span>{cantidad}</span>
       <button onClick={add}> +</button>
       <br />
-      <button onClick={()=>handleQuantity(cantidad)}>Agregar al carrito</button>
+      <button onClick={addToCart}>Agregar al carrito</button>
     </div>
   );
 };
