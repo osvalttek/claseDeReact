@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+
 const ArticleStyled = styled.article`
   display: flex;
   flex-direction: column;
@@ -17,14 +18,16 @@ const ArticleStyled = styled.article`
 `;
 
 const Product = ({ product }) => {
+  
+  
   return (
     <Link to={`/product/${product.id}`}>
       <ArticleStyled>
         <h3>{product.title}</h3>
-        <img src={product.images[0]} alt={product.title} />
+        <img src={"https://image.tmdb.org/t/p/w500"+product.poster_path}/>
         <h3>Precio: ${product.price} </h3>
       </ArticleStyled>
-    </Link>
+    // </Link>
   );
 };
 

@@ -34,14 +34,15 @@ const ProductDetail = ({ product }) => {
   return (
     <DivStyled>
       <h1>{product.title}</h1>
-      <img src={product.images?.[0]} alt="" />
+      {/* <img src={product.images?.[0]} alt="" /> */}
+       <img src={"https://image.tmdb.org/t/p/w500/" + product?.poster_path} />
       <h3>{product.description}</h3>
       <h3>Precio: ${product.price}</h3>
       <h3>Stock: {product.stock}</h3>
       <Counter stock={product.stock} handleQuantity={handleQuantity} />
       <br />
       {goToCart && (
-        <Link to="/cart">
+        <Link to="">
           <button>Ir al carrito</button>
         </Link>
       )}
