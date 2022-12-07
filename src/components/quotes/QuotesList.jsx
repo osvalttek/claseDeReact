@@ -1,15 +1,12 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllQuotes } from "../../store/slices/quotesSlice";
 import Quote from "./Quote";
+import { useGetAllQuotesQuery } from "../../store/api/quoteApi";
 
 const QuotesList = () => {
-  const quotes = useSelector((state) => state.quotes.value);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllQuotes());
-  }, [dispatch]);
-
-  return quotes.map((quote, key) => <Quote quote={quote} key={key} />);
+  const { isLoading, data: quotes = [] } = useGetAllQuotesQuery();
+  return isLoading ? (
+    <h2>Cargando</h2>
+  ) : (
+    quotes.map((quote, key) => <Quote quote={quote} key={key} />)
+  );
 };
 export default QuotesList;

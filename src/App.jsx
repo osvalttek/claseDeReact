@@ -11,7 +11,7 @@ function App() {
   const[user, setUser]=useState("")
   
   return (
-    <Provider store={store}>
+    <Provider store={store}>  
       <Header />
       <Main />
       <Footer />
