@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Counter from "./counter/Counter";
-import Product from "./product/Product";
-import ProductsList from "./products/ProductsList";
+import QuotesList from "./quotes/QuotesList";
+import CharacterQuote from "./quote/CharacterQuote";
 
 const Main = () => {
   const [user, setUser] = useState(true);
@@ -10,8 +10,8 @@ const Main = () => {
     <main>
       <Routes>
         {/* {user && <Route path="/products" element={<ProductsList />} />} */}
-        <Route path="/products" element={<ProductsList />}/>
-        <Route path="/product" element={<Product />} />
+        <Route path="/quotes" element={<QuotesList />}/>
+        <Route path="/quote/:name" element={<CharacterQuote/>} />
         <Route path="/counter" element={<Counter />} />
       </Routes>
     </main>

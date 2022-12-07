@@ -1,15 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // aca llamamos a nuestros reducers
-import counterReducer from "./slices/counterSlice"
+import counterReducer from "./slices/counterSlice";
+import quotesReducer from "./slices/quotesSlice";
 
-
-export const store= configureStore({
+export const store = configureStore({
   reducer: {
-    counter:counterReducer,
-
+    counter: counterReducer,
+    quotes: quotesReducer,
   },
 });
-
 
 // export default store
